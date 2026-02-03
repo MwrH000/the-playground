@@ -1,7 +1,7 @@
 import requests
 import time
 
-url = ""
+url = input('Enter the URL to refresh: ').strip()
 
 requests.packages.urllib3.disable_warnings()
 
@@ -15,8 +15,9 @@ while True:
         session.get(url, timeout=0.1)
     except:
         pass
-    
+
     count += 1
-    print(f"Refresh #{count}")
-    
+    if count % 5 == 0:
+        print(f"Refresh #{count}")
+
     time.sleep(1)
