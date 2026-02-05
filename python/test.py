@@ -1,1 +1,1 @@
-print("Ph4nk000 / MwrH000")123
+print("Ph4nk000 / MwrH000")
