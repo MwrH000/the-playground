@@ -41,7 +41,7 @@ class CybersecurityToolkit:
         elif len(password) >= 8:
             score += 15
         else:
-            feedback.append("Pasword should be at least 8 characters long")
+            feedback.append("Password should be at least 8 characters long")
         
         if re.search(r'[A-Z]', password):
             score += 15
