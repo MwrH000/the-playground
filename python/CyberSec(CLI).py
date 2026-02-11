@@ -28,7 +28,8 @@ class CybersecurityToolkit:
         common = [
             'password', '123456', '123456789', 'qwerty', 'admin',
             'letmein', 'welcome', 'monkey', 'password1', 'abc123',
-            '12345678', '1234567', '12345', '1234', '111111'
+            '12345678', '1234567', '12345', '1234', '111111', '123abc',
+            '123123', 'abc123'
         ]
         return common
     

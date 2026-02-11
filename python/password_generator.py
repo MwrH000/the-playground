@@ -160,6 +160,7 @@ def _build_ui():
     button_row = ttk.Frame(container)
     button_row.pack(fill="x", pady=(18, 0))
 
+    # password strength
     def _estimate_strength(password, length, groups):
         if not password:
             return 0, "None"
