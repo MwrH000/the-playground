@@ -1,5 +1,1 @@
-user1 = "MwrH000"
-user2 = "Ph4nk000"
-group000 = "Group000"
-
-print(user1, "and", user2, "are in", group000)
+print("hi there!, my name is mwrh aka ph4nk (pronounced as 'feng')")
