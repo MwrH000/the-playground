@@ -5,5 +5,5 @@
 a personal space for learning, testing and building.<br><br>
 
 <p align="center">
- <img src="cat.gif"></img>
+ <img src="dancingcat.gif"></img>
 </p>
