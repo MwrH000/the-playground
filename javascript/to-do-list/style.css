@@ -1,0 +1,267 @@
+﻿:root {
+  --bg: #0a111d;
+  --panel: #121c2a;
+  --panel-soft: #162334;
+  --text: #e6edf7;
+  --muted: #9cb0c6;
+  --accent: #0d9488;
+  --accent-strong: #0f766e;
+  --danger: #ef4444;
+  --line: #253449;
+  --shadow: 0 24px 54px rgba(0, 0, 0, 0.45);
+  --radius-xl: 24px;
+  --radius-md: 14px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Outfit", sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at 0% 0%, #0f2f2b 0, transparent 44%),
+    radial-gradient(circle at 100% 100%, #1b2d49 0, transparent 50%), var(--bg);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  position: relative;
+}
+
+.app {
+  width: min(1080px, 100%);
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 20px;
+  animation: fadeUp 0.55s ease;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow);
+}
+
+.panel-left {
+  padding: 24px;
+  background: linear-gradient(180deg, #152235, var(--panel-soft));
+}
+
+.panel-header h1 {
+  margin: 8px 0 6px;
+  font-size: 2rem;
+}
+
+.eyebrow {
+  margin: 0;
+  color: var(--accent-strong);
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.subtitle {
+  margin: 0 0 24px;
+  color: var(--muted);
+}
+
+.task-form {
+  display: grid;
+  gap: 10px;
+}
+
+.task-form label {
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.task-form input {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px;
+  font: inherit;
+  color: inherit;
+  background: #0f1927;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.task-form input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.14);
+}
+
+.task-form button {
+  margin-top: 8px;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 16px;
+  font: inherit;
+  font-weight: 600;
+  color: #eafffd;
+  background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+  cursor: pointer;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.task-form button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.03);
+}
+
+.panel-right {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 560px;
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.list-header h2 {
+  margin: 0;
+}
+
+.task-count {
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.task-list {
+  list-style: none;
+  margin: 0;
+  padding: 4px 0 0;
+  display: grid;
+  gap: 12px;
+}
+
+.task-item {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 14px;
+  background: #162437;
+  display: grid;
+  gap: 8px;
+  animation: cardIn 0.35s ease;
+}
+
+.task-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 500;
+  word-break: break-word;
+  transition: color 0.25s ease, text-decoration-color 0.25s ease;
+}
+
+.task-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.badge {
+  border-radius: 999px;
+  padding: 4px 9px;
+  background: #223247;
+}
+
+.badge.deadline.overdue {
+  color: #fecdd3;
+  background: #4c1d2f;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.icon-btn {
+  border: 1px solid var(--line);
+  background: #101a29;
+  color: var(--text);
+  border-radius: 10px;
+  padding: 6px 10px;
+  font: inherit;
+  font-size: 0.83rem;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.icon-btn:hover {
+  background: #1b2a3f;
+}
+
+.icon-btn.delete:hover {
+  background: #3a1f26;
+  color: var(--danger);
+}
+
+.task-item.completed {
+  background: #101a28;
+}
+
+.task-item.completed .task-title {
+  color: #7387a0;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+}
+
+.empty-state {
+  margin: 26px 0 0;
+  color: var(--muted);
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes cardIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.99);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 900px) {
+  .app {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-right {
+    min-height: 320px;
+  }
+}

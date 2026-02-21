@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>To-Do List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel panel-left">
+        <div class="panel-header">
+          <p class="eyebrow">Task Manager</p>
+          <h1>To-Do List</h1>
+          <p class="subtitle">Plan clearly. Finish confidently.</p>
+        </div>
+
+        <form id="taskForm" class="task-form" autocomplete="off">
+          <label for="taskInput">Task</label>
+          <input
+            id="taskInput"
+            name="task"
+            type="text"
+            placeholder="What needs to get done?"
+            required
+            maxlength="160"
+          />
+
+          <label for="deadlineDateInput">Deadline</label>
+          <input id="deadlineDateInput" name="deadlineDate" type="date" />
+
+          <button type="submit">Add Task</button>
+        </form>
+      </section>
+
+      <section class="panel panel-right">
+        <div class="list-header">
+          <h2>My Tasks</h2>
+          <span id="taskCount" class="task-count">0 active</span>
+        </div>
+
+        <ul id="taskList" class="task-list"></ul>
+
+        <p id="emptyState" class="empty-state">No tasks yet. Add your first one.</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
