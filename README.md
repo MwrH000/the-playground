@@ -3,6 +3,5 @@
 > learn. practice. improve.
 
 <br>
-<p align="center">
- <img src="cat.gif"></img>
-</p>
+
+![Alt](https://repobeats.axiom.co/api/embed/36796cedda47d6f382aa3d0e6cf28ff406eff4b4.svg "Repobeats analytics image")
