@@ -146,7 +146,7 @@ class SimpleAIChat:
                     "model": "google/gemma-3-4b-it",  # Verify this model is available
                     "messages": [{"role": "user", "content": user_input}],
                     "temperature": 0.7,
-                    "max_tokens": 100,
+                    "max_tokens": 10000,
                 },
                 timeout=30
             )
