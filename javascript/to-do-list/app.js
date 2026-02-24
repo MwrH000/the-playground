@@ -58,10 +58,15 @@ taskList.addEventListener("click", (event) => {
 function render() {
   taskList.innerHTML = "";
   const sortedTasks = [...tasks].sort((a, b) => {
-    if (a.completed !== b.completed) return Number(a.completed) - Number(b.completed);
+    if (a.completed !== b.completed)
+      return Number(a.completed) - Number(b.completed);
 
-    const aDeadline = a.deadline ? new Date(a.deadline).getTime() : Number.POSITIVE_INFINITY;
-    const bDeadline = b.deadline ? new Date(b.deadline).getTime() : Number.POSITIVE_INFINITY;
+    const aDeadline = a.deadline
+      ? new Date(a.deadline).getTime()
+      : Number.POSITIVE_INFINITY;
+    const bDeadline = b.deadline
+      ? new Date(b.deadline).getTime()
+      : Number.POSITIVE_INFINITY;
 
     if (aDeadline !== bDeadline) return aDeadline - bDeadline;
     return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
@@ -78,12 +83,14 @@ function render() {
     item.className = `task-item${task.completed ? " completed" : ""}`;
 
     const createdText = formatDate(task.createdAt);
-    const deadlineText = task.deadline ? formatDate(task.deadline, false) : "No deadline";
+    const deadlineText = task.deadline
+      ? formatDate(task.deadline, false)
+      : "No deadline";
     const overdue = isOverdue(task.deadline, task.completed);
 
     item.innerHTML = `
       <div class="task-row">
-        <p class="task-title">${formatTaskTitle(task.title)}</p>
+        <p class="task-title">${escapeHtml(task.title)}</p>
         <div class="actions">
           <button class="icon-btn" data-action="toggle" data-id="${task.id}">
             ${task.completed ? "Undo" : "Complete"}
@@ -151,14 +158,6 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
-}
-
-function formatTaskTitle(value) {
-  const escaped = escapeHtml(value);
-  return escaped
-    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
-    .replace(/\*([^*]+)\*/g, "<em>$1</em>")
-    .replace(/`([^`]+)`/g, "<code>$1</code>");
 }
 
 function buildDeadlineISO(dateValue) {
