@@ -83,7 +83,7 @@ function render() {
 
     item.innerHTML = `
       <div class="task-row">
-        <p class="task-title">${escapeHtml(task.title)}</p>
+        <p class="task-title">${formatTaskTitle(task.title)}</p>
         <div class="actions">
           <button class="icon-btn" data-action="toggle" data-id="${task.id}">
             ${task.completed ? "Undo" : "Complete"}
@@ -151,6 +151,14 @@ function escapeHtml(value) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#039;");
+}
+
+function formatTaskTitle(value) {
+  const escaped = escapeHtml(value);
+  return escaped
+    .replace(/\*\*([^*]+)\*\*/g, "<strong>$1</strong>")
+    .replace(/\*([^*]+)\*/g, "<em>$1</em>")
+    .replace(/`([^`]+)`/g, "<code>$1</code>");
 }
 
 function buildDeadlineISO(dateValue) {
